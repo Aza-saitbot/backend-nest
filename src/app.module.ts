@@ -2,6 +2,7 @@ import {Module} from "@nestjs/common";
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from './users/users.module';
+import {User} from "./users/users.models";
 
 @Module({
 controllers:[],
@@ -17,7 +18,7 @@ controllers:[],
             username:process.env.POSTGRES_USERNAME,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
-            models: [],
+            models: [User],
             autoLoadModels:true
         }),
         UsersModule,
